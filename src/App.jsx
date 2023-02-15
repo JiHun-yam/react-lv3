@@ -4,12 +4,16 @@ import InputArea from './componets/Input/InputArea'
 import ModalArea from './componets/Modal/ModalArea'
 import SelectArea from './componets/Select/SelectArea'
 
-
+const Container = styled.div`
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid red;
+`
 
 
 function App() {
   return (
-    <div>dd</div>
+    <Container></Container>
   );
 }
 
