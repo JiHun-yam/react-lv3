@@ -13,7 +13,14 @@ const Container = styled.div`
 
 function App() {
   return (
-    <Container></Container>
+    <Container>
+
+      <ButtonArea />
+      <InputArea />
+      <ModalArea />
+      <SelectArea />
+
+    </Container>
   );
 }
 
