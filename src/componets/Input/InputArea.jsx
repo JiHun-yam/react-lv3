@@ -16,10 +16,9 @@ const InpArea = styled.div`
     }
 
     > input {
-        padding: 0.5rem 1rem;
+        padding: .5rem 1rem;
         border-radius: 10px; 
     }
-    
     
 `;
 
@@ -30,7 +29,7 @@ const InpArea = styled.div`
 function InputArea() {
     const [inputValue, setInputValue] = useState({
         name: '',
-        prcie: 0.
+        price: 0,
     })
 
 
@@ -38,38 +37,48 @@ function InputArea() {
         // 초기값을 얇은복사하고 거기에 이름을 입력된걸로 바꿔라
         setInputValue({ ...inputValue, name: e.target.value })
     }
+    const onChabgePriceHandler = (e) => {
+        const value = e.target.value;
+        const removedCommaValue = Number(value.replaceAll(',', ''));
+
+        setInputValue({ ...inputValue, price: removedCommaValue.toLocaleString() });
+    };
 
 
 
 
 
 
-
-    const onFormInputBoxHandler = (event) => {
-        console.log('d')
-        event.preventdefault()
-        console.log('d')
-    }
+    const onFormInputBoxHandler = (e) => {
+  
+        e.preventDefault();
+        alert(`{name: ${inputValue.name}, price: ${inputValue.price}}`);
+    };
 
     return (
 
-        <form action="/">
+        <form onSubmit={onFormInputBoxHandler}>
             <InpArea>
                 <h1>Input</h1><br />
                 <label>이름</label> &nbsp;
-                <input value={inputValue.name}
+                <input
+
+                    value={inputValue.name}
                     onChange={onChangeNameHandelr}
                 />
 
                 <label style={{ paddingLeft: '10px', }}>가격</label> &nbsp;
 
-                <input value={inputValue.price}
+                <input
+
+                    value={inputValue.price}
+                    onChange={onChabgePriceHandler}
 
                 />
                 <Btn
                     back={'#8EA7E9'}
                     InputBtn
-                    onClick={onFormInputBoxHandler}>dd</Btn>
+                >dd</Btn>
             </InpArea >
         </form >
 
