@@ -70,7 +70,7 @@ export const Btn = styled.button`
         &&
         css`
         margin-left: 20px;
-        border: none;
+      
     `};
    
    
