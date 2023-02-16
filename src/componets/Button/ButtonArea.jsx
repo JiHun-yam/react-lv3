@@ -17,7 +17,7 @@ const ButtonGround = styled.div`
     margin-top: 7px;
 `;
 // 버튼 초기값 
-const Btn = styled.button`
+export const Btn = styled.button`
     height: 3rem;
     width: 5rem;
     border-radius: 15px;
@@ -46,6 +46,14 @@ const Btn = styled.button`
       width: 7rem;
       border: none;
     `};
+    ${(props) =>
+        props.InputBtn
+        &&
+        css`
+    margin-left: 20px;
+        border: none;
+    `};
+ 
    
 
   

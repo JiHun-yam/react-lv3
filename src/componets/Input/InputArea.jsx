@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
+import { Btn } from '../Button/ButtonArea';
 
 
 const InpArea = styled.div`
@@ -8,61 +9,70 @@ const InpArea = styled.div`
     border: 1px solid green;
     padding-left: 20px;
 
-
-    >label{
+    > label {
         text-align: center;
-        padding-right: 10px;
-        
+        padding-right :20px;
+      
     }
+
+    > input {
+        padding: 0.5rem 1rem;
+        border-radius: 10px; 
+    }
+    
+    
 `;
 
 
-const Input = styled.input`
-    padding: 0.5rem 1rem;
-    border-radius: 10px; 
-`;
+
 
 
 function InputArea() {
+    const [inputValue, setInputValue] = useState({
+        name: '',
+        prcie: 0.
+    })
 
-    let [name, setName] = useState('');
-    let [price, setPrice] = useState(0);
 
     const onChangeNameHandelr = (e) => {
-        setName(e.target.value)
-    }
-
-    const onChangePrcieHandelr = (e) => {
-        setPrice(e.target.value)
+        // 초기값을 얇은복사하고 거기에 이름을 입력된걸로 바꿔라
+        setInputValue({ ...inputValue, name: e.target.value })
     }
 
 
 
-    const FormInputBoxHandler = (event) => {
+
+
+
+
+    const onFormInputBoxHandler = (event) => {
         console.log('d')
         event.preventdefault()
         console.log('d')
     }
 
     return (
-        <InpArea>
-            <form action="/">
 
+        <form action="/">
+            <InpArea>
                 <h1>Input</h1><br />
                 <label>이름</label> &nbsp;
-                <Input
-                    value={name}
+                <input value={inputValue.name}
                     onChange={onChangeNameHandelr}
-                ></Input>
+                />
+
                 <label style={{ paddingLeft: '10px', }}>가격</label> &nbsp;
-                <Input
-                    value={price}
-                    onChange={onChangePrcieHandelr}></Input>
 
-                <button >ㅇㅇ</button>
+                <input value={inputValue.price}
 
-            </form>
-        </InpArea>
+                />
+                <Btn
+                    back={'#8EA7E9'}
+                    InputBtn
+                    onClick={onFormInputBoxHandler}>dd</Btn>
+            </InpArea >
+        </form >
+
     )
 }
 
