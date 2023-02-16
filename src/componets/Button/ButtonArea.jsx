@@ -16,6 +16,11 @@ const ButtonGround = styled.div`
     gap: 20px;
     margin-top: 7px;
 `;
+
+
+
+
+
 // 버튼 초기값 
 export const Btn = styled.button`
     height: 3rem;
@@ -53,7 +58,21 @@ export const Btn = styled.button`
         margin-left: 20px;
         border: none;
     `};
- 
+    ${(props) =>
+        props.inModal
+        &&
+        css`
+        margin-left: 20px;
+        border: none;
+    `};
+    ${(props) =>
+        props.outModal
+        &&
+        css`
+        margin-left: 20px;
+        border: none;
+    `};
+   
    
 
   
@@ -79,23 +98,14 @@ function ButtonArea() {
         prompt(' 어렵냐 ?');
     }
 
-    const Circle = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background: ${props => props.color || 'black'};
-  border-radius: 50%;
-  ${props =>
-            props.huge &&
-            css`
-      width: 10rem;
-      height: 10rem;
-    `}
-`;
+
+
 
 
     return (
         <ButArea>
             <h1>Button</h1>
+
             {
                 ButtonLabel.map((v, i) => {
                     return (

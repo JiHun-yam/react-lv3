@@ -6,7 +6,6 @@ import { Btn } from '../Button/ButtonArea';
 const InpArea = styled.div`
     width: 60%;
     height: 20%;
-    border: 1px solid green;
     padding-left: 20px;
 
     > label {
@@ -42,6 +41,7 @@ function InputArea() {
         const removedCommaValue = Number(value.replaceAll(',', ''));
 
         setInputValue({ ...inputValue, price: removedCommaValue.toLocaleString() });
+
     };
 
 
@@ -50,7 +50,7 @@ function InputArea() {
 
 
     const onFormInputBoxHandler = (e) => {
-  
+
         e.preventDefault();
         alert(`{name: ${inputValue.name}, price: ${inputValue.price}}`);
     };
